@@ -1,0 +1,434 @@
+#: import ScrollEffect kivy.effects.scroll.ScrollEffect
+<Image1@ButtonBehavior+Image>:
+<ItemDrawer>:
+    theme_text_color: 'Primary'
+    on_release: self.parent.set_color_item(self)
+
+    IconLeftWidget:
+        id: icon
+        icon: root.icon
+        theme_text_color: 'Secondary'
+        text_color: root.text_color
+<ContentNavigationDrawer>:
+    orientation: "vertical"
+    
+    MDCard:
+        orientation: "vertical"
+        size_hint_y:None
+        height:"170dp"
+        spacing:5
+        Image1:
+            id:loger
+            source:'image/shortcutkey.png'
+            size_hint_y:None
+            height:"150dp"
+            
+        MDLabel:
+            id:user_id
+            text:"Version 1.5.30"
+            markup:True
+            font_size:"10dp"
+                        
+            text_size:self.size
+            
+            halign:'right'
+            valign:'top'
+            
+
+    BoxLayout:
+
+        ScrollView:
+            effect_cls: ScrollEffect
+            canvas.before:
+                Color:
+                    rgba:[1,1,1,1]
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+
+
+            DrawerList:
+                
+                id: md_list
+                Label:
+                    height:"20dp"
+                MDSeparator:
+                OneLineAvatarListItem:
+                    text: "Languages and Founder"
+                    on_release:root.notebook("lanc")
+                    IconLeftWidget:
+                        icon: "code-braces"
+                MDSeparator:
+                OneLineAvatarListItem:
+                    text: "Memory Unit"
+                    on_release:root.notebook("memo")
+                    IconLeftWidget:
+                        icon: "memory"
+                MDSeparator:
+                OneLineAvatarListItem:
+                    text: "File and Extension"
+                    on_release:root.notebook("fileex")
+                    IconLeftWidget:
+                        icon: "file-delimited-outline"
+                MDSeparator:
+                OneLineAvatarListItem:
+                    text: "Abbreviations"
+                    on_release:root.notebook("abbre")
+                    IconLeftWidget:
+                        icon: "xml"
+                MDSeparator:
+                OneLineAvatarListItem:
+                    text: "Command Windows"
+                    on_release:root.notebook("cmdc")
+                    IconLeftWidget:
+                        icon: "powershell"
+                MDSeparator:
+                
+                Label:
+                    size_hint_y:None
+                    height:"30dp"
+                    
+                MDLabel:
+                    text:"**ALL THE BEST**"
+                    markup:True
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    theme_text_color: "Custom"
+                    bold:True
+                    halign:'center'
+                    text_color:[0,0,0,1]
+                            
+<HomePage>:
+    
+    name:'HomePage'
+    
+    MDNavigationLayout:
+              
+                            
+                            
+
+                
+                    
+        
+        
+                
+        ScreenManager:
+            Screen:            
+                BoxLayout:
+                    orientation: 'vertical'
+                    canvas.before:
+                        Color:
+                            rgba:[1,1,1,1]
+                        Rectangle:
+                        
+                            size:self.size
+                            pos:self.pos
+                    
+                    MDToolbar:
+                        id:toolbar
+                        title: "Copmuter Shortcut"
+                        
+                        elevation: 10
+                        
+                        specific_text_color: [0,0,0,1]
+                        left_action_items: [['menu', lambda x: nav_drawer.set_state('toggle')]] 
+                        
+                        md_bg_color: [255/256,193/256,7/256,1]
+                        
+                        
+                                
+                                
+                        MDIconButton:
+                            id: buttonmenu
+                            icon: "dots-vertical"
+                            pos_hint: {"center_y": .5}
+                            on_release: app.menu.open()
+                        
+                                            
+                        
+                    MDBottomNavigation:
+                        panel_color: 240/256, 240/256, 240/256, 1
+                        #elevation: 10
+                        MDBottomNavigationItem:
+                            name: 'screen 1'
+                            text: 'Note'
+                            icon: 'book-multiple'
+
+                            ScrollView:
+                                effect_cls: ScrollEffect
+                                bar_width:0
+
+                                MDList:
+                                    spacing:5
+                                    MDCard:
+                                        orientation: 'horizontal'
+                                        ripple_behavior:True
+                                        elevation:10
+                                        
+                                        size_hint_y:None
+                                        height:"100dp"
+                                        on_release:root.notebook('general')
+                                        md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"5dp"
+                                        MDIconButton:
+                                            
+                                            icon: "microsoft-windows"
+                                            user_font_size:"48sp"
+                                            pos_hint: {"center_x": .5, "center_y": .5}
+                                            theme_text_color: "Custom"
+                                            specific_text_color: [117/256,117/256,117/256,1]
+                                            text_color: [117/256,117/256,117/256,1]
+                                            md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"15dp"
+                                        BoxLayout:
+                                            orientation: 'vertical'
+                                            spacing:5
+                                            Label:
+                                                size_hint_y:None
+                                                height:"10dp"
+                                            MDLabel:
+                                                text:"General Shortcut Key"
+                                                bold:True
+                                                font_size:"18dp"
+                                                text_size:self.size
+                                                size_hint_y:None
+                                                markup:True
+                                                height:"25dp"
+                                                halign:'left'
+
+                                                theme_text_color: "Custom"
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+
+                                                
+                                            MDLabel:
+                                                text:"Commonely Used Keyboard Shortcut Key In Windows OS."
+                                                text_size:self.size
+                                                markup:True
+                                                font_size:"14dp"
+
+                                                valign:"middle"
+                                                halign:'left'
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+                                    MDCard:
+                                        orientation: 'horizontal'
+                                        ripple_behavior:True
+                                        elevation:10
+                                        
+                                        size_hint_y:None
+                                        height:"100dp"
+                                        on_release:root.notebook('word')
+                                        md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"5dp"
+                                        MDIconButton:
+                                            
+                                            icon: "microsoft-word"
+                                            user_font_size:"48sp"
+                                            pos_hint: {"center_x": .5, "center_y": .5}
+                                            theme_text_color: "Custom"
+                                            specific_text_color: [117/256,117/256,117/256,1]
+                                            text_color: [117/256,117/256,117/256,1]
+                                            md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"15dp"
+                                        BoxLayout:
+                                            orientation: 'vertical'
+                                            spacing:5
+                                            Label:
+                                                size_hint_y:None
+                                                height:"10dp"
+                                            MDLabel:
+                                                text:"Microsoft-Word Shortcut Key"
+                                                bold:True
+                                                font_size:"18dp"
+                                                text_size:self.size
+                                                size_hint_y:None
+                                                markup:True
+                                                height:"25dp"
+                                                halign:'left'
+
+                                                theme_text_color: "Custom"
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+
+                                                
+                                            MDLabel:
+                                                text:"All Keyboard Shortcut Key Used in Microsoft Word."
+                                                text_size:self.size
+                                                markup:True
+                                                font_size:"14dp"
+
+                                                valign:"middle"
+                                                halign:'left'
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+                                    MDCard:
+                                        orientation: 'horizontal'
+                                        ripple_behavior:True
+                                        elevation:10
+                                        
+                                        size_hint_y:None
+                                        height:"100dp"
+                                        on_release:root.notebook('excel')
+                                        md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"5dp"
+                                        MDIconButton:
+                                            
+                                            icon: "microsoft-excel"
+                                            user_font_size:"48sp"
+                                            pos_hint: {"center_x": .5, "center_y": .5}
+                                            theme_text_color: "Custom"
+                                            specific_text_color: [117/256,117/256,117/256,1]
+                                            text_color: [117/256,117/256,117/256,1]
+                                            md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"15dp"
+                                        BoxLayout:
+                                            orientation: 'vertical'
+                                            spacing:5
+                                            Label:
+                                                size_hint_y:None
+                                                height:"10dp"
+                                            MDLabel:
+                                                text:"Microsoft-Excel Shortcut Key"
+                                                bold:True
+                                                font_size:"18dp"
+                                                text_size:self.size
+                                                size_hint_y:None
+                                                markup:True
+                                                height:"25dp"
+                                                halign:'left'
+
+                                                theme_text_color: "Custom"
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+
+                                                
+                                            MDLabel:
+                                                text:"All Keyboard Shortcut Key Used in Microsoft Excel."
+                                                text_size:self.size
+                                                markup:True
+                                                font_size:"14dp"
+
+                                                valign:"middle"
+                                                halign:'left'
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+                                    MDCard:
+                                        orientation: 'horizontal'
+                                        ripple_behavior:True
+                                        elevation:10
+                                        
+                                        size_hint_y:None
+                                        height:"100dp"
+                                        on_release:root.notebook('power')
+                                        md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"5dp"
+                                        MDIconButton:
+                                            
+                                            icon: "file-powerpoint-box"
+                                            user_font_size:"48sp"
+                                            pos_hint: {"center_x": .5, "center_y": .5}
+                                            theme_text_color: "Custom"
+                                            specific_text_color: [117/256,117/256,117/256,1]
+                                            text_color: [117/256,117/256,117/256,1]
+                                            md_bg_color: [1,1,1,1]
+                                        Label:
+                                            size_hint_x:None
+                                            width:"15dp"
+                                        BoxLayout:
+                                            orientation: 'vertical'
+                                            spacing:5
+                                            Label:
+                                                size_hint_y:None
+                                                height:"10dp"
+                                            MDLabel:
+                                                text:"PowerPoint Shortcut Key"
+                                                bold:True
+                                                font_size:"18dp"
+                                                text_size:self.size
+                                                size_hint_y:None
+                                                markup:True
+                                                height:"25dp"
+                                                halign:'left'
+
+                                                theme_text_color: "Custom"
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+
+                                                
+                                            MDLabel:
+                                                text:"All Keyboard Shortcut Key Used in Microsoft PowerPoint."
+                                                text_size:self.size
+                                                markup:True
+                                                font_size:"14dp"
+
+                                                valign:"middle"
+                                                halign:'left'
+                                                specific_text_color: [0,0,0,1]
+                                                text_color: [0,0,0,1]
+                                    
+
+                        MDBottomNavigationItem:
+                            name: 'screen 2'
+                            text: 'Practice'
+                            icon: 'keyboard'
+
+                            ScrollView:
+                                effect_cls: ScrollEffect
+                                bar_width:0
+
+                                MDList:
+                                    spacing:1
+                                    OneLineAvatarListItem:
+                                        text: "Practice General Shortcut Key"
+                                        on_release:root.word_pra("general")
+                                        IconLeftWidget:
+                                            icon: "microsoft-windows"
+                                    MDSeparator:
+                                        
+                                    OneLineAvatarListItem:
+                                        text: "Practice Microsoft-Word Shortcut Key"
+                                        on_release:root.word_pra("word")
+
+                                        IconLeftWidget:
+                                            icon: "microsoft-word"
+                                    MDSeparator:
+                                    OneLineAvatarListItem:
+                                        text: "Practice Microsoft Excel Shortcut Key"
+                                        on_release:root.word_pra("excel")
+                                        IconLeftWidget:
+                                            icon: "microsoft-excel"
+                                    MDSeparator:
+                                    OneLineAvatarListItem:
+                                        text: "Practice  Microsoft PowerPoint Key"
+                                        on_release:root.word_pra("power")
+                                        IconLeftWidget:
+                                            icon: "file-powerpoint-box"
+                                    MDSeparator:
+                                    OneLineAvatarListItem:
+                                        text: "Practice Random Quations"
+
+                                        IconLeftWidget:
+                                            icon: "keyboard-settings-outline"
+                                    MDSeparator:
+
+
+        MDNavigationDrawer:
+            #anim_type: 'fade_in'
+            id:nav_drawer
+            ContentNavigationDrawer:
+                          
+        

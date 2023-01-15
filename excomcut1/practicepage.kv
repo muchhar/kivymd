@@ -1,0 +1,291 @@
+#: import ScrollEffect kivy.effects.scroll.ScrollEffect
+<PracticePage>:
+    name:'PracticePage' 
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba:[1,1,1,1]
+            Rectangle:
+                
+                size:self.size
+                pos:self.pos
+        
+        MDToolbar:
+            title: "Copmuter Shortcut"
+            elevation: 10
+            
+            specific_text_color: [0,0,0,1]
+            left_action_items: [['arrow-left', lambda x: root.blogin()]]  
+            
+            md_bg_color: [255/256,193/256,7/256,1]
+            MDIconButton:
+                id: buttonmenu
+                icon: "dots-vertical"
+                pos_hint: {"center_y": .5}
+                on_release: app.menu.open()
+
+        ScrollView:
+            effect_cls: ScrollEffect
+            BoxLayout:
+                orientation:"vertical"
+                padding:8
+                size_hint_y:None
+                height:"425dp"
+                MDLabel:
+                    id:qnow
+                    text:"Q1. Select All Text In Box1 Using Shortcut Key"
+                    size_hint_y:None
+                    height:"25dp"
+                    markup:True
+                    bold:True
+                    halign:"left"
+                Label:
+                    size_hint_y:None
+                    height:"15dp"
+                MDLabel:
+                    text:"Box1"
+                    size_hint_y:None
+                    height:"15dp"
+                    markup:True
+                    halign:"left"
+                    bold:True
+                Label:
+                    size_hint_y:None
+                    height:"5dp"
+                
+                Image:
+                	id:img_q
+                    source:"wordexe/c0.png"
+                    size_hint_y:None
+                    height:"350dp"
+                    allow_stretch:True
+                    keep_ratio:False
+
+                        
+                        
+                        
+                        
+                   
+                
+                
+                
+                
+        AnchorLayout:
+            anchor_x:"center"
+            anchor_y:"bottom"
+            size_hint_y:None
+            height:"210dp"
+            BoxLayout:
+                orientation:"vertical"
+                size_hint_y:None
+                height:"210dp" 
+                MDLabel:
+                    id:notel
+                    text:"Note: Click first key and then other key from below keyboard(this is not standard keyboard just for practice)."
+                    size_hint_y:None
+                    height:"40dp"
+                    font_size:"14sp"
+                    markup:True
+                    theme_text_color: "Custom"
+                    halign:"left"
+                    bold:True
+                    text_color:[0,0,255/256,1]       
+                MDLabel:
+                    id:indicat
+                    text:""
+                    size_hint_y:None
+                    height:"15dp"
+                    markup:True
+                    theme_text_color: "Custom"
+                    halign:"center"
+                    
+                    text_color:[105/256,105/256,105/256,1]
+                Label:
+                    size_hint_y:None
+                    height:"5dp"
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint_y:None
+                    height:"150dp"
+                    spacing:"0dp"
+                    BoxLayout:
+                        orientation:"horizontal"
+                        Button:
+                            id:fun1
+                            text:"F1"
+                            on_press:root.ctrl(self.text)
+                        
+                        Button:
+                            id:fun2
+                            text:"F2"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:fun3
+                            text:"F3"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:fun4
+                            text:"F4"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:signb1
+                            text:"Del"
+                            on_press:root.ctrl(self.text)
+                        
+                        Button:
+                            id:signb2
+                            text:"Home"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:signb3
+                            text:"["
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:signb4
+                            text:">"
+                            on_press:root.ctrl(self.text)
+                        
+                    BoxLayout:
+                        orientation:"horizontal"
+                        size_hint_x:1
+                        Button:
+                            id:tab
+                            text:"Tab"
+                            size_hint_x:2
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:num1
+                            text:"0"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:num2
+                            text:"1"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:num3
+                            text:"2"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:num4
+                            text:"3"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:bspace
+                            text:"Backspace"
+                            size_hint_x:2
+                            on_press:root.ctrl(self.text)
+                               
+                    BoxLayout:
+                        orientation:"horizontal"
+                        BoxLayout:
+                            orientation:"vertical"
+                            size_hint_x:2
+                            Label:
+                                size_hint_y:None
+                                height:"1dp"
+
+                            Button:
+                                id:shift
+                                text:"Shift"
+                                background_normal:''
+                                background_color:[88/256,88/256,88/256,1]                
+                                on_press:root.ctrl(self.text)
+                            Label:
+                                size_hint_y:None
+                                height:"1dp"
+                        Label:
+                            size_hint_x:None
+                            width:"1dp"
+                        Button:
+                            id:alpha1
+                            text:"A"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:alpha2
+                            text:"B"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:alpha3
+                            text:"C"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:alpha4
+                            text:"D"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:enter
+                            text:"Enter"
+                            size_hint_x:2        
+                    BoxLayout:
+                        orientation:"horizontal"
+                        BoxLayout:
+                            orientation:"vertical"
+                            
+                            Label:
+                                size_hint_y:None
+                                height:"1dp"
+
+                            Button:
+                                id:bctrl
+                                text:"Ctrl"
+                                background_normal:''
+                                background_color:[88/256,88/256,88/256,1]
+                                on_press:root.ctrl(self.text)
+                            Label:
+                                size_hint_y:None
+                                height:"1dp"
+                        Label:
+                            size_hint_x:None
+                            width:"1dp"
+                        BoxLayout:
+                            orientation:"vertical"
+                            
+                            Label:
+                                size_hint_y:None
+                                height:"1dp"
+
+                            Button:
+                                id:alt
+                                text:"Alt"
+                                background_normal:''
+                                background_color:[88/256,88/256,88/256,1]
+                                on_press:root.ctrl(self.text)
+                            Label:
+                                size_hint_y:None
+                                height:"1dp"
+                        Label:
+                            size_hint_x:None
+                            width:"1dp"
+                        Button:
+                            id:space
+                            text:"Space"
+                            size_hint_x:2
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:leftk
+                            text:"<--"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:rightk
+                            text:"-->"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:upk
+                            text:"Up"
+                            on_press:root.ctrl(self.text)
+                        Button:
+                            id:dnk
+                            text:"Dn"
+                            on_press:root.ctrl(self.text)
+                               
+                
+                
+        
+
+        
+            
+
+            
+        
+                
